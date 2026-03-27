@@ -1,0 +1,111 @@
+<table class="ref-table">
+    <thead>
+        <tr>
+            <th style="width:4%">Rank</th>
+            <th style="width:20%">Predictor</th>
+            <th style="width:14%">SHAP Value</th>
+            <th style="width:62%">Clinical Interpretation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><span class="ref-rank">1</span></td>
+            <td><span class="ref-crit">Age at surgery</span></td>
+            <td><span class="ref-hi">0.407 — highest</span></td>
+            <td>Dominant predictor. Risk increases non-linearly with age, reflecting cumulative physiologic reserve decline. Patients &ge;75 carry substantially elevated 1-year mortality risk.</td>
+        </tr>
+        <tr>
+            <td><span class="ref-rank">2</span></td>
+            <td><span class="ref-crit">Sex (male)</span></td>
+            <td>0.218</td>
+            <td>Male sex independently predicts elevated 1-year mortality, consistent with published sex-based differences in cardiovascular and perioperative outcomes after TJA.</td>
+        </tr>
+        <tr>
+            <td><span class="ref-rank">3</span></td>
+            <td><span class="ref-crit">Creatinine</span></td>
+            <td>0.162</td>
+            <td>Continuous renal function marker. Risk accelerates above 1.5 mg/dL, reflecting reduced physiologic reserve and increased vulnerability to perioperative hemodynamic stress.</td>
+        </tr>
+        <tr>
+            <td><span class="ref-rank">4</span></td>
+            <td><span class="ref-crit">Hemoglobin</span></td>
+            <td>0.153</td>
+            <td>Graded risk across severity levels. Preoperative anemia independently predicts 1-year mortality beyond the 90-day window, likely reflecting underlying disease burden and reduced oxygen reserve.</td>
+        </tr>
+        <tr>
+            <td><span class="ref-rank">5</span></td>
+            <td><span class="ref-crit">BMI</span></td>
+            <td>0.145</td>
+            <td>Non-linear relationship. Very low BMI signals frailty/cachexia; extreme obesity elevates risk. Mid-range obesity in this elective surgical cohort carries attenuated risk due to pre-operative selection bias.</td>
+        </tr>
+        <tr>
+            <td><span class="ref-rank">6</span></td>
+            <td><span class="ref-crit">Systolic blood pressure</span></td>
+            <td>0.142</td>
+            <td>Bidirectional risk pattern. Elevated SBP reflects cardiovascular burden; very low values may indicate frailty or reduced cardiac output. Both ends of the distribution predict 1-year mortality independently.</td>
+        </tr>
+        <tr>
+            <td><span class="ref-rank">7</span></td>
+            <td><span class="ref-crit">White blood cell count</span></td>
+            <td>0.137</td>
+            <td>Both leukocytosis and leukopenia carry independent signal, reflecting infectious, inflammatory, and hematologic risk. An absent pre-operative WBC measurement also carries predictive weight (wbc_missing flag).</td>
+        </tr>
+        <tr>
+            <td><span class="ref-rank">8</span></td>
+            <td><span class="ref-crit">Comorbidity count</span></td>
+            <td>0.112</td>
+            <td>Aggregate burden outperforms any single diagnosis. Each additional condition incrementally elevates 1-year mortality risk, independent of specific condition type or severity. Count of 16 conditions tracked.</td>
+        </tr>
+        <tr>
+            <td><span class="ref-rank">9</span></td>
+            <td><span class="ref-crit">Glucose</span></td>
+            <td>0.100</td>
+            <td>Continuous predictor capturing diabetic and non-diabetic hyperglycemia. Elevated preoperative glucose reflects metabolic dysregulation independently predictive of 1-year mortality.</td>
+        </tr>
+        <tr>
+            <td><span class="ref-rank">10</span></td>
+            <td><span class="ref-crit">ASA physical status</span></td>
+            <td>0.098</td>
+            <td>Carries independent weight beyond comorbidity count, reflecting the anesthesiologist's integrated assessment of physiologic reserve. The model corroborates ASA class as a valid mortality stratification tool.</td>
+        </tr>
+        <tr>
+            <td><span class="ref-rank">11</span></td>
+            <td><span class="ref-crit">Platelet count</span></td>
+            <td>0.088</td>
+            <td>Both thrombocytopenia and thrombocytosis carry risk. Platelet count reflects hepatic synthetic function, bone marrow reserve, and inflammatory state — all relevant to 1-year survival.</td>
+        </tr>
+        <tr>
+            <td><span class="ref-rank">12</span></td>
+            <td><span class="ref-crit">Albumin</span></td>
+            <td>0.088</td>
+            <td>Nutritional and hepatic synthetic marker. Values below 3.5 g/dL carry graded mortality risk. Activated only when liver disease is flagged; otherwise imputed to cohort median.</td>
+        </tr>
+        <tr>
+            <td><span class="ref-rank">13</span></td>
+            <td><span class="ref-crit">COPD</span></td>
+            <td><span class="ref-excl">0.086 — strongest single comorbidity flag</span></td>
+            <td>COPD independently predicts 1-year mortality beyond its contribution to comorbidity count, reflecting the severity of pulmonary reserve impairment and its systemic effects on perioperative physiology.</td>
+        </tr>
+        <tr>
+            <td><span class="ref-rank">14</span></td>
+            <td><span class="ref-crit">Prior ED visits (12 mo)</span></td>
+            <td>0.064</td>
+            <td>Leading utilization-based predictor. Prior ED visits independently capture healthcare fragility and acute illness burden not reflected in diagnosis codes alone. Risk increases with visit count (capped at 2).</td>
+        </tr>
+        <tr>
+            <td><span class="ref-rank">15</span></td>
+            <td><span class="ref-crit">Diastolic blood pressure</span></td>
+            <td>0.063</td>
+            <td>Provides incremental value beyond systolic BP alone, particularly at low values where wide pulse pressure signals advanced arterial stiffness and cardiovascular vulnerability relevant to 1-year survival.</td>
+        </tr>
+    </tbody>
+</table>
+<p style="font-size:11px;color:#64748b;margin-top:10px;line-height:1.5;">
+    SHAP = SHapley Additive exPlanations; mean absolute SHAP value reflects average contribution to model
+    prediction across a random sample of 5,000 patients from the full-cohort model. Predictors ranked by
+    mean |SHAP| from XGBoost v7 trained on 1-year all-cause mortality (n=234,252; restricted cohort,
+    &ge;365-day follow-up or confirmed death within 365 days of surgery). COSI ambulatory eligibility
+    features were excluded (construct mismatch for mortality outcome). Validation: nested 5-fold
+    cross-validation, leakage-safe isotonic calibration. AUC = 0.761. Internally validated only;
+    external validation required before clinical application.
+</p>
