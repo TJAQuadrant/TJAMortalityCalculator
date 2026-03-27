@@ -1,0 +1,304 @@
+/* ── Force dark background everywhere ── */
+html, body, [class*="css"], .stApp,
+.stApp > div, .main, .main > div,
+section[data-testid="stSidebar"],
+div[data-testid="stAppViewContainer"],
+div[data-testid="stMain"],
+div[data-testid="block-container"] {
+    background: #0b0e14 !important;
+    color: #e2e8f0 !important;
+    font-family: 'Segoe UI', system-ui, sans-serif !important;
+    font-size: 17px !important;
+}
+
+/* ── Kill the default white toolbar / top bar ── */
+header[data-testid="stHeader"] {
+    background: #0b0e14 !important;
+    border-bottom: 1px solid #1e293b !important;
+}
+
+.block-container {
+    padding: 0 0 40px 0 !important;
+    max-width: 100% !important;
+    background: #0b0e14 !important;
+}
+
+#MainMenu, footer { visibility: hidden; }
+
+/* ── All text defaults to light ── */
+p, span, div, label, li, td, th, h1, h2, h3, h4 {
+    color: #e2e8f0 !important;
+}
+
+/* ── Header ── */
+.app-hdr {
+    background: #131822;
+    border-bottom: 1px solid #1e293b;
+    padding: 14px 28px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.app-hdr-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff !important;
+}
+.app-hdr-sub {
+    font-size: 14px;
+    color: #94a3b8 !important;
+    margin-top: 3px;
+    font-family: 'Courier New', monospace;
+}
+
+/* ── Section headers ── */
+.s-hdr {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #1e293b;
+    margin: 18px 0 12px;
+}
+.dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; display: inline-block; }
+.dot-blue  { background: #4f90f6; }
+.dot-amber { background: #f59e0b; }
+.dot-teal  { background: #14b8a6; }
+.dot-rose  { background: #f43f5e; }
+.dot-muted { background: #475569; }
+.s-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #94a3b8 !important;
+}
+.s-note  { font-size: 13px; color: #64748b !important; font-style: italic; }
+.badge {
+    font-size: 13px;
+    background: #1e293b;
+    color: #94a3b8 !important;
+    border: 1px solid #334155;
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-family: 'Courier New', monospace;
+    margin-left: auto;
+}
+.badge-hi {
+    font-size: 13px;
+    background: #1f0a0e;
+    color: #f87171 !important;
+    border: 1px solid #3b1518;
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-family: 'Courier New', monospace;
+    margin-left: auto;
+}
+
+/* ── Form card ── */
+.form-card {
+    background: #131822;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 22px 26px 26px 26px;
+    margin-bottom: 14px;
+}
+
+/* ── Lab gate messages ── */
+.lab-lbl {
+    font-size: 17px;
+    color: #e2e8f0 !important;
+    line-height: 2.6;
+    display: block;
+    font-weight: 500;
+}
+.lab-gate {
+    font-size: 14px;
+    color: #f59e0b !important;
+    background: #1a1200;
+    border: 1px solid #2a1f00;
+    border-radius: 4px;
+    padding: 5px 12px;
+    display: inline-block;
+    margin-top: 6px;
+}
+
+/* ── Stale warning ── */
+.stale-warn {
+    font-size: 14px;
+    color: #f59e0b !important;
+    background: #1a1200;
+    border: 1px solid #2a1f00;
+    border-radius: 6px;
+    padding: 7px 14px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ── Result panel ── */
+.res-card {
+    background: #131822;
+    border-radius: 10px;
+    border: 1px solid #1e293b;
+    padding: 20px;
+    margin-bottom: 14px;
+}
+.res-sub  { text-align: center; font-size: 14px; color: #64748b !important; margin-bottom: 14px; }
+.t-row    { display: flex; justify-content: space-between; align-items: center; font-size: 17px; }
+.t-lbl    { color: #94a3b8 !important; }
+.verdict  { border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+.v-title  { font-size: 21px; font-weight: 700; margin-bottom: 8px; }
+.v-body   { font-size: 16px; line-height: 1.6; }
+
+.flag-chip {
+    font-size: 14px;
+    background: #1f0a0e;
+    color: #f87171 !important;
+    border: 1px solid #3b1518;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin: 2px 2px 0 0;
+    display: inline-block;
+}
+.info-card {
+    background: #131822;
+    border-radius: 10px;
+    border: 1px solid #1e293b;
+    padding: 16px;
+    margin-bottom: 14px;
+}
+.info-ttl {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b !important;
+    margin-bottom: 10px;
+}
+.footer-txt { font-size: 13px; color: #475569 !important; line-height: 1.7; padding-top: 8px; }
+.footer-em  { color: #94a3b8 !important; font-weight: 600; }
+
+/* ── Reference table ── */
+.ref-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.ref-table th {
+    background: #131822;
+    color: #64748b !important;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid #1e293b;
+}
+.ref-table td {
+    padding: 10px 14px;
+    color: #c8cdd8 !important;
+    border-bottom: 1px solid #0f1419;
+    vertical-align: top;
+    line-height: 1.6;
+}
+.ref-table tr:last-child td { border-bottom: none; }
+.ref-table tr:hover td { background: #131822; }
+.ref-crit  { color: #ffffff !important; font-weight: 600; }
+.ref-rank  { color: #475569 !important; font-size: 13px; font-family: 'Courier New', monospace; }
+.ref-std   { color: #4ade80 !important; }
+.ref-cond  { color: #f59e0b !important; }
+.ref-excl  { color: #f87171 !important; }
+.ref-hi    { color: #f59e0b !important; font-weight: 700; }
+.ref-green { color: #34d399 !important; font-weight: 700; }
+
+hr { border-color: #1e293b !important; margin: 14px 0 !important; }
+
+/* ── Streamlit widget overrides — dark backgrounds, light text ── */
+div[data-testid="stNumberInput"] > div,
+div[data-testid="stSelectbox"] > div,
+div[data-testid="stRadio"] > div {
+    background: #0b0e14 !important;
+}
+
+/* Input fields themselves */
+div[data-testid="stNumberInput"] input,
+div[data-testid="stTextInput"] input {
+    background: #1e293b !important;
+    color: #e2e8f0 !important;
+    border-color: #334155 !important;
+    font-size: 17px !important;
+}
+
+/* All widget labels */
+div[data-testid="stNumberInput"] label,
+div[data-testid="stRadio"] label,
+div[data-testid="stCheckbox"] label,
+div[data-testid="stSelectbox"] label {
+    font-size: 17px !important;
+    color: #e2e8f0 !important;
+}
+
+/* Radio button text */
+div[data-testid="stRadio"] div[role="radiogroup"] label,
+div[data-testid="stRadio"] span {
+    font-size: 17px !important;
+    color: #e2e8f0 !important;
+}
+
+/* Checkbox labels */
+div[data-testid="stCheckbox"] span {
+    color: #e2e8f0 !important;
+    font-size: 17px !important;
+}
+
+/* Selectbox dropdown text */
+div[data-testid="stSelectbox"] span,
+div[data-testid="stSelectbox"] div {
+    color: #e2e8f0 !important;
+    background: #1e293b !important;
+}
+
+/* Number input +/- buttons */
+div[data-testid="stNumberInput"] button {
+    background: #1e293b !important;
+    color: #e2e8f0 !important;
+    border-color: #334155 !important;
+}
+
+/* Expander */
+div[data-testid="stExpander"] {
+    background: #131822 !important;
+    border: 1px solid #1e293b !important;
+    border-radius: 8px !important;
+}
+div[data-testid="stExpander"] summary,
+div[data-testid="stExpander"] summary span,
+div[data-testid="stExpander"] summary p {
+    color: #94a3b8 !important;
+    font-size: 15px !important;
+}
+div[data-testid="stExpander"] > div {
+    background: #131822 !important;
+}
+
+/* Primary button */
+div[data-testid="stButton"] button[kind="primary"] {
+    background: #4f90f6 !important;
+    color: #ffffff !important;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    border: none !important;
+}
+div[data-testid="stButton"] button[kind="secondary"],
+div[data-testid="stButton"] button {
+    background: #1e293b !important;
+    color: #e2e8f0 !important;
+    border: 1px solid #334155 !important;
+    font-size: 17px !important;
+}
+
+/* Error / info boxes */
+div[data-testid="stAlert"] {
+    background: #131822 !important;
+    color: #e2e8f0 !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; background: #0b0e14; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
